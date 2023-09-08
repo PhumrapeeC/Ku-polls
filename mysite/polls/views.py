@@ -33,8 +33,12 @@ class DetailView(generic.DetailView):
         # Get the Question object
         self.object = self.get_object()
 
+        # Check if the question is published
+        if not self.object.is_published():
+            raise Http404("This question is not published yet.")
+
         # Check if the question is open for voting
-        if not self.object.is_voting_open():
+        if not self.object.can_vote():
             raise Http404("This question is no longer open for voting.")
 
         context = self.get_context_data(object=self.object)
