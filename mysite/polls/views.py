@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 from django.urls import reverse
@@ -28,6 +28,17 @@ class DetailView(generic.DetailView):
         Excludes any questions that aren't published yet.
         """
         return Question.objects.filter(pub_date__lte=timezone.now())
+    
+    def get(self, request, *args, **kwargs):
+        # Get the Question object
+        self.object = self.get_object()
+
+        # Check if the question is open for voting
+        if not self.object.is_voting_open():
+            raise Http404("This question is no longer open for voting.")
+
+        context = self.get_context_data(object=self.object)
+        return self.render_to_response(context)
 
 
 class ResultsView(generic.DetailView):
