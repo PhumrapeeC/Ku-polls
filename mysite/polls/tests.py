@@ -70,3 +70,24 @@ class QuestionIndexViewTests(TestCase):
             response.context['latest_question_list'],
             [question2, question1],
         )
+    
+    def test_is_published_with_future_pub_date(self):
+        """
+        is_published() should return False for a question with a future pub date
+        """
+        future_question = create_question(question_text='Future question.', days=5)
+        self.assertIs(future_question.is_published(), False)
+    
+    def test_is_published_with_default_pub_date(self):
+        """
+        is_published() should return True for a question with the default pub date (now)
+        """
+        default_question = create_question(question_text='Default question.', days=0)
+        self.assertIs(default_question.is_published(), True)
+    
+    def test_is_published_with_past_pub_date(self):
+        """
+        is_published() should return True for a question with a pub date in the past
+        """
+        past_question = create_question(question_text='Past question.', days=-5)
+        self.assertIs(past_question.is_published(), True)
