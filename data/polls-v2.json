@@ -1,0 +1,137 @@
+[
+{
+  "model": "polls.question",
+  "pk": 5,
+  "fields": {
+    "question_text": "What is your favorite season?",
+    "pub_date": "2023-09-09T15:41:26Z",
+    "end_date": "2023-09-16T15:41:30Z"
+  }
+},
+{
+  "model": "polls.question",
+  "pk": 6,
+  "fields": {
+    "question_text": "What is your Best Movie Genre?",
+    "pub_date": "2023-09-09T15:42:46Z",
+    "end_date": "2023-09-23T15:43:00Z"
+  }
+},
+{
+  "model": "polls.question",
+  "pk": 7,
+  "fields": {
+    "question_text": "Which place that you preferred Vacation Destination?",
+    "pub_date": "2023-09-09T15:44:16Z",
+    "end_date": "2023-09-30T15:44:21Z"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 5,
+  "fields": {
+    "question": 5,
+    "choice_text": "Spring",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 6,
+  "fields": {
+    "question": 5,
+    "choice_text": "Summer",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 7,
+  "fields": {
+    "question": 5,
+    "choice_text": "Autumn",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 8,
+  "fields": {
+    "question": 5,
+    "choice_text": "Winter",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 9,
+  "fields": {
+    "question": 6,
+    "choice_text": "Action",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 10,
+  "fields": {
+    "question": 6,
+    "choice_text": "Comedy",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 11,
+  "fields": {
+    "question": 6,
+    "choice_text": "Drama",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 12,
+  "fields": {
+    "question": 6,
+    "choice_text": "Science Fiction",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 13,
+  "fields": {
+    "question": 7,
+    "choice_text": "Beach Resort",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 14,
+  "fields": {
+    "question": 7,
+    "choice_text": "Mountain Retreat",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 15,
+  "fields": {
+    "question": 7,
+    "choice_text": "City Exploration",
+    "votes": 0
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 16,
+  "fields": {
+    "question": 7,
+    "choice_text": "Cultural Tour",
+    "votes": 0
+  }
+}
+]
