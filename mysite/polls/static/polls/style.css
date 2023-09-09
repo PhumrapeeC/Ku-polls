@@ -8,7 +8,7 @@ body, ul {
 body {
     background: #f2f2f2 url("/static/images/mw4y58i658981.gif") no-repeat;
     background-size: cover;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #333;
 }
 
@@ -22,7 +22,7 @@ body {
 /* Style headings */
 h1 {
     font-size: 36px;
-    color: #000;
+    color: #333;
     margin-bottom: 20px;
 }
 
@@ -58,6 +58,7 @@ a {
     padding: 10px 20px;
     font-size: 18px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .vote-button:hover {
