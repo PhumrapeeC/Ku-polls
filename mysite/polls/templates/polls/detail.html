@@ -2,25 +2,27 @@
 
 <link rel="stylesheet" href="{% static 'polls/style.css' %}">
 
-<h1>{{ question.question_text }}</h1>
+<div class="container">
+    <h1 class="question">{{ question.question_text }}</h1>
 
-{% if error_message %}
-<p><strong>{{ error_message }}</strong></p>
-{% endif %}
+    {% if error_message %}
+    <p class="error-message">{{ error_message }}</p>
+    {% endif %}
 
-<form action="{% url 'polls:vote' question.id %}" method="post">
-    {% csrf_token %}
-    <fieldset>
-        <legend><h1>{{ question.question_text }}</h1></legend>
-        {% for choice in question.choice_set.all %}
-        <div class="choice">
-            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
-        </div>
-        {% endfor %}
-    </fieldset>
-    <input type="submit" value="Vote">
-</form>
+    <form action="{% url 'polls:vote' question.id %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            {% for choice in question.choice_set.all %}
+            <div class="choice">
+                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+            </div>
+            {% endfor %}
+        </fieldset>
+        <button type="submit" class="vote-button">Vote</button>
+    </form>
 
-<!-- Add Results link -->
-<p><a href="{% url 'polls:results' question.id %}">View Results</a></p>
+    <div class="nav-links">
+        <a href="{% url 'polls:results' question.id %}">View Results</a>
+    </div>
+</div>
