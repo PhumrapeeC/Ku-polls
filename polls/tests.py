@@ -121,4 +121,4 @@ class QuestionIndexViewTests(TestCase):
         """
         current_date = timezone.now()
         question = Question(pub_date=timezone.now(), end_date=current_date)
-        self.assertIs(question.can_vote(), True)
+        self.assertTrue(question.can_vote())
