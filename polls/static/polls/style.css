@@ -1,0 +1,95 @@
+/* Reset some default styles */
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a background image and set font styles */
+body {
+    background: #f2f2f2 url("/static/images/mw4y58i658981.gif") no-repeat;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+/* Improve the overall layout and spacing */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style headings */
+h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Style links */
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Style the poll question and error message */
+.question {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.error-message {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+/* Style the poll choices */
+.choice {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Style the vote button */
+.vote-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.vote-button:hover {
+    background-color: #0056b3;
+}
+
+/* Style the results page */
+.results-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.results-list {
+    list-style: none; /* Remove bullet points */
+    padding-left: 0;
+}
+
+.results-item {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Style the navigation links */
+.nav-links {
+    margin-top: 20px;
+}
+
+/* Style the footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 16px;
+    color: #666;
+}
