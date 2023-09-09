@@ -3,7 +3,8 @@ from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 from django.urls import reverse
 from django.views import generic
-
+from django.contrib import messages
+from django.shortcuts import redirect
 from .models import Choice, Question
 
 
@@ -24,22 +25,23 @@ class DetailView(generic.DetailView):
     template_name = 'polls/detail.html'
 
     def get_queryset(self):
-        """
-        Excludes any questions that aren't published yet.
-        """
         return Question.objects.filter(pub_date__lte=timezone.now())
-    
+
     def get(self, request, *args, **kwargs):
-        # Get the Question object
-        self.object = self.get_object()
+        try:
+            self.object = self.get_object()
+        except Http404:
+            # Handle the case where the object is not found
+            messages.error(request, "Poll not found.")
+            return redirect('polls:index')
 
-        # Check if the question is published
         if not self.object.is_published():
-            raise Http404("This question is not published yet.")
+            messages.error(request, "This question is not published yet.")
+            return redirect('polls:index')
 
-        # Check if the question is open for voting
         if not self.object.can_vote():
-            raise Http404("This question is no longer open for voting.")
+            messages.error(request, "Voting for this poll is not allowed.")
+            return redirect('polls:index')
 
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
