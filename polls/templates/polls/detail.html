@@ -13,10 +13,10 @@
         {% csrf_token %}
         <fieldset>
             {% for choice in question.choice_set.all %}
-            <div class="choice">
-                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-                <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
-            </div>
+                <div class="choice">
+                    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+                </div>
             {% endfor %}
         </fieldset>
         <button type="submit" class="vote-button">Vote</button>
@@ -24,5 +24,9 @@
 
     <div class="nav-links">
         <a href="{% url 'polls:results' question.id %}">View Results</a>
+    </div>
+
+    <div class="nav-links_1">
+        <a href="{% url 'polls:index'%}">Back to Poll</a>
     </div>
 </div>

@@ -72,7 +72,7 @@ a {
 }
 
 .results-list {
-    list-style: none;
+    list-style: none; /* Remove bullet points */
     padding-left: 0;
 }
 

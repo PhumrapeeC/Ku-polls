@@ -44,7 +44,7 @@ class DetailView(generic.DetailView):
         """
         return Question.objects.filter(pub_date__lte=timezone.now())
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request, **kwargs):
         """
         Handle GET requests for the detail view.
 
