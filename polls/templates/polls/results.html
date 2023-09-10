@@ -9,7 +9,7 @@
         {% for choice in question.choice_set.all %}
             <div class="results-item">
                 <p class="choice-text">{{ choice.choice_text }}</p>
-                <p class="vote-count">{{ choice.votes }} vote{{ choice.votes|pluralize }}</p>
+                <p class="vote-count">{{ choice.votes }}</p>
             </div>
         {% endfor %}
     </div>
