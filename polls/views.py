@@ -1,5 +1,6 @@
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
+from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.urls import reverse
 from django.views import generic
@@ -88,6 +89,7 @@ class ResultsView(generic.DetailView):
     template_name = 'polls/results.html'
 
 
+@login_required
 def vote(request, question_id):
     """
     View to handle user votes for a specific question.
