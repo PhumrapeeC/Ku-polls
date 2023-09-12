@@ -90,6 +90,9 @@ AUTHENTICATION_BACKENDS = [
    'django.contrib.auth.backends.ModelBackend',  
 ]
 
+LOGIN_REDIRECT_URL = 'polls:index'  # after login, show list of polls
+LOGOUT_REDIRECT_URL = 'login' 
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
