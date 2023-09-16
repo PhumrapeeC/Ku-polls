@@ -9,7 +9,7 @@ This app was created as part of the [Individual Software Process](
 https://cpske.github.io/ISP) course at Kasetsart University.
 
 ## Install and Run
-## Using setup script
+### Using setup script
 1. Clone the repository and change directory into the repo
    ```
    git clone https://github.com/Jwizzed/ku-polls.git
@@ -27,7 +27,7 @@ https://cpske.github.io/ISP) course at Kasetsart University.
    setup-win.bat
    ```
 
-## Manual Installation
+### Manual Installation
 1. Clone the repository
    ```
    https://github.com/PhumrapeeC/ku-polls.git
