@@ -102,6 +102,11 @@ def vote(request, question_id):
         HttpResponse: The HTTP response, either a redirection to results or an error message.
     """
     question = get_object_or_404(Question, pk=question_id)
+
+    if not question.can_vote():
+        messages.error(request, "Voting for this poll is not allowed.")
+        return HttpResponseRedirect(reverse('polls:detail', args=(question.id,)))
+
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
@@ -110,8 +115,11 @@ def vote(request, question_id):
             'error_message': "You didn't select a choice.",
         })
     else:
-        selected_choice.votes += 1
-        selected_choice.save()
-        return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+        # Check if the user has already voted for this choice
+        if selected_choice.votes.filter(pk=request.user.id).exists():
+            messages.error(request, "You have already voted in this poll.")
+            return HttpResponseRedirect(reverse('polls:detail', args=(question.id,)))
 
+        selected_choice.votes.add(request.user)  # Associate the vote with the user
+        return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 

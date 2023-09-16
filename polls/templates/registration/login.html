@@ -12,5 +12,8 @@
   <input type="hidden" name="next" value="{{next}}"/>
  </form>
  {# If you have a sign-up page, then add a link here #}
+ <div class="back-to-poll">
+  <a href="{% url 'polls:index' %}" class="btn btn-secondary">Back to Poll</a>
+</div>
 </body>
 </html>
