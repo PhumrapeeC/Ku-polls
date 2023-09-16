@@ -15,18 +15,6 @@ https://cpske.github.io/ISP) course at Kasetsart University.
    git clone https://github.com/Jwizzed/ku-polls.git
    cd ku-polls
    ```
-2. Execute the setup script
-
-   For Linux/MacOS:
-   ```
-   chmod +x setup-linux.sh
-   ./setup-linux.sh
-   ```
-   For Windows:
-   ```
-   setup-win.bat
-   ```
-
 ### Manual Installation
 1. Clone the repository
    ```
