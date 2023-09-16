@@ -12,7 +12,7 @@ https://cpske.github.io/ISP) course at Kasetsart University.
 ### Using setup script
 1. Clone the repository and change directory into the repo
    ```
-   git clone https://github.com/Jwizzed/ku-polls.git
+   git clone https://github.com/PhumrapeeC/ku-polls.git
    cd ku-polls
    ```
 ### Manual Installation
