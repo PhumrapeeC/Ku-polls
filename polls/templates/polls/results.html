@@ -7,11 +7,8 @@
 
     <div class="results-list">
         {% for choice in question.choice_set.all %}
-            <div class="results-item">
-                <p class="choice-text">{{ choice.choice_text }}</p>
-                <p class="vote-count">{{ choice.votes }}</p>
-            </div>
-        {% endfor %}
+        <p>{{ choice.choice_text }} - Votes: {{ choice.votes.count }}</p>
+    {% endfor %}
     </div>
 
     <div class="nav-links">
