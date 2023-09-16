@@ -100,16 +100,6 @@ class ResultsView(generic.DetailView):
 
 @login_required
 def vote(request, question_id):
-    """
-    View to handle user votes for a specific question.
-
-    Args:
-        request: The HTTP request object.
-        question_id (int): The ID of the question being voted on.
-
-    Returns:
-        HttpResponse: The HTTP response, either a redirection to results or an error message.
-    """
     question = get_object_or_404(Question, pk=question_id)
 
     if not question.can_vote():
@@ -123,12 +113,11 @@ def vote(request, question_id):
             'question': question,
             'error_message': "You didn't select a choice.",
         })
-    else:
-        # Check if the user has already voted for this choice
-        if selected_choice.votes.filter(pk=request.user.id).exists():
-            messages.error(request, "You have already voted in this poll.")
-            return HttpResponseRedirect(reverse('polls:detail', args=(question.id,)))
 
-        selected_choice.votes.add(request.user)  # Associate the vote with the user
-        return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+    # Remove all of the user's previous votes (for all questions)
+    request.user.voted_choices.clear()
 
+    # Add the new vote
+    selected_choice.votes.add(request.user)
+
+    return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
