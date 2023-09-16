@@ -29,62 +29,27 @@ class IndexView(generic.ListView):
 
 
 class DetailView(generic.DetailView):
-    """
-    View to display the details of a specific question.
-
-    Attributes:
-        model (Question): The model associated with this view.
-        template_name (str): The name of the template to be used for rendering the view.
-    """
     model = Question
     template_name = 'polls/detail.html'
 
     def get_queryset(self):
-        """
-        Return the questions that are published and not in the future.
-        """
         return Question.objects.filter(pub_date__lte=timezone.now())
 
-    def get(self, request, **kwargs):
-        """
-        Handle GET requests for the detail view.
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        question = context['question']
+        user = self.request.user
 
-        Checks if the question is published and allows voting.
-        If not published or voting is not allowed, redirects to the index page with an error message.
+        # Check if the user has voted for this question
+        if user.is_authenticated and question.choice_set.filter(votes=user).exists():
+            # Get the user's previous choice for this question
+            previous_choice = question.choice_set.get(votes=user)
+            context['previous_choice'] = previous_choice
 
-        Args:
-            request: The HTTP request object.
-
-        Returns:
-            HttpResponse: The HTTP response.
-        """
-        try:
-            self.object = self.get_object()
-        except Http404:
-            # Handle the case where the object is not found
-            messages.error(request, "Poll not found.")
-            return redirect('polls:index')
-
-        if not self.object.is_published():
-            messages.error(request, "This question is not published yet.")
-            return redirect('polls:index')
-
-        if not self.object.can_vote():
-            messages.error(request, "Voting for this poll is not allowed.")
-            return redirect('polls:index')
-
-        context = self.get_context_data(object=self.object)
-        return self.render_to_response(context)
+        return context
 
 
 class ResultsView(generic.DetailView):
-    """
-    View to display the results of a specific question.
-
-    Attributes:
-        model (Question): The model associated with this view.
-        template_name (str): The name of the template to be used for rendering the view.
-    """
     model = Question
     template_name = 'polls/results.html'
 
@@ -93,8 +58,14 @@ class ResultsView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        question = context['question']
-        context['choices'] = question.choice_set.all()
+
+        # Check for any success message in the messages framework
+        success_messages = messages.get_messages(self.request)
+        success_messages = [message for message in success_messages if message.tags == 'success']
+
+        if success_messages:
+            context['success_message'] = success_messages[0]
+
         return context
 
 
@@ -119,5 +90,8 @@ def vote(request, question_id):
 
     # Add the new vote
     selected_choice.votes.add(request.user)
+
+    # Create a success message
+    messages.success(request, f"Your vote for '{selected_choice.choice_text}' has been saved.")
 
     return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
