@@ -2,6 +2,7 @@ import datetime
 
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 
@@ -65,7 +66,6 @@ class Question(models.Model):
         recent_question = Question(pub_date=time)
         self.assertIs(recent_question.was_published_recently(), True)
     
-    
 
 class Choice(models.Model):
     """
@@ -74,11 +74,11 @@ class Choice(models.Model):
     Attributes:
         question (Question): The question associated with this choice.
         choice_text (str): The text of the choice.
-        votes (int): The number of votes for this choice.
+        votes (ManyToManyField): The users who have voted for this choice.
     """
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-
+    votes = models.ManyToManyField(User, related_name='voted_choices', blank=True)
+    
     def __str__(self):
         return self.choice_text

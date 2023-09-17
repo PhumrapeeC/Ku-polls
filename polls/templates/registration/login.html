@@ -1,0 +1,19 @@
+{% load static %}
+
+<html>
+<body>
+<h2>Login</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <p>
+  <button type="submit">Login</button>
+  </p>
+  <input type="hidden" name="next" value="{{next}}"/>
+ </form>
+
+ <div class="back-to-poll">
+  <a href="{% url 'polls:index' %}" class="btn btn-secondary">Back to Poll</a>
+</div>
+</body>
+</html>
