@@ -74,7 +74,7 @@ def vote(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
 
     if not question.can_vote():
-        messages.error(request, "Voting for this poll is not allowed.")
+        messages.error(request, "Voting for this poll is not allowed at this time.")
         return HttpResponseRedirect(reverse('polls:detail', args=(question.id,)))
 
     try:
@@ -85,13 +85,19 @@ def vote(request, question_id):
             'error_message': "You didn't select a choice.",
         })
 
-    # Remove all of the user's previous votes (for all questions)
-    request.user.voted_choices.clear()
+    # Check if the user has already voted for this question
+    user = request.user
+    if question.choice_set.filter(votes=user).exists():
+        previous_choice = question.choice_set.get(votes=user)
+        # Remove the old vote
+        previous_choice.votes.remove(user)
+        messages.warning(request, f"Your old vote for '{previous_choice.choice_text}' has been removed.")
 
     # Add the new vote
-    selected_choice.votes.add(request.user)
-
-    # Create a success message
+    selected_choice.votes.add(user)
     messages.success(request, f"Your vote for '{selected_choice.choice_text}' has been saved.")
 
     return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+
+
+
