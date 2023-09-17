@@ -32,7 +32,7 @@
 
     <div class="results-list">
         {% for choice in question.choice_set.all %}
-        <p>{{ choice.choice_text }} - Votes: {{ choice.votes.count }}</p>
+        <p>{{ choice.choice_text }} : {{ choice.votes.count }}</p>
     {% endfor %}
     </div>
 
