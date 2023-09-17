@@ -29,13 +29,32 @@ class IndexView(generic.ListView):
 
 
 class DetailView(generic.DetailView):
+    """
+    View to display details of a specific question.
+
+    Attributes:
+        model: The model associated with this view (Question).
+        template_name (str): The name of the template to be used for rendering the view.
+    """
     model = Question
     template_name = 'polls/detail.html'
 
     def get_queryset(self):
+        """
+        Return questions that are published and not in the future.
+
+        Returns:
+            QuerySet: A queryset of questions.
+        """
         return Question.objects.filter(pub_date__lte=timezone.now())
 
     def get_context_data(self, **kwargs):
+        """
+        Get additional context data for the view.
+
+        Returns:
+            dict: A dictionary containing additional context data.
+        """
         context = super().get_context_data(**kwargs)
         question = context['question']
         user = self.request.user
@@ -50,13 +69,32 @@ class DetailView(generic.DetailView):
 
 
 class ResultsView(generic.DetailView):
+    """
+    View to display the results of a specific question.
+
+    Attributes:
+        model: The model associated with this view (Question).
+        template_name (str): The name of the template to be used for rendering the view.
+    """
     model = Question
     template_name = 'polls/results.html'
 
     def get_queryset(self):
+        """
+        Get the queryset of questions that are published and not in the future.
+
+        Returns:
+            QuerySet: A queryset of questions.
+        """
         return Question.objects.filter(pub_date__lte=timezone.now())
 
     def get_context_data(self, **kwargs):
+        """
+        Get additional context data for the view, including success messages.
+
+        Returns:
+            dict: A dictionary containing additional context data.
+        """
         context = super().get_context_data(**kwargs)
 
         # Check for any success message in the messages framework
@@ -68,9 +106,18 @@ class ResultsView(generic.DetailView):
 
         return context
 
-
 @login_required
 def vote(request, question_id):
+    """
+    View to handle user voting on a question.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+        question_id (int): The ID of the question being voted on.
+
+    Returns:
+        HttpResponseRedirect: Redirects to the results page of the question after voting.
+    """
     question = get_object_or_404(Question, pk=question_id)
 
     if not question.can_vote():
