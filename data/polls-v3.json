@@ -1,0 +1,114 @@
+[
+{
+  "model": "polls.question",
+  "pk": 9,
+  "fields": {
+    "question_text": "What is your favorite Ice Cream flavor?",
+    "pub_date": "2023-09-17T07:32:39Z",
+    "end_date": "2023-09-30T07:32:40Z"
+  }
+},
+{
+  "model": "polls.question",
+  "pk": 10,
+  "fields": {
+    "question_text": "What do you do for weekend plans?",
+    "pub_date": "2023-09-17T07:34:33Z",
+    "end_date": "2023-09-30T07:34:34Z"
+  }
+},
+{
+  "model": "polls.question",
+  "pk": 11,
+  "fields": {
+    "question_text": "What is your most watch streaming services?",
+    "pub_date": "2023-09-17T08:27:43Z",
+    "end_date": "2023-09-30T08:27:44Z"
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 21,
+  "fields": {
+    "question": 9,
+    "choice_text": "Strawberry",
+    "votes": [
+      1
+    ]
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 22,
+  "fields": {
+    "question": 9,
+    "choice_text": "Vanilla",
+    "votes": []
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 23,
+  "fields": {
+    "question": 9,
+    "choice_text": "Chocolate",
+    "votes": []
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 24,
+  "fields": {
+    "question": 10,
+    "choice_text": "Relaxing at home",
+    "votes": []
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 25,
+  "fields": {
+    "question": 10,
+    "choice_text": "Going for a hike",
+    "votes": []
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 26,
+  "fields": {
+    "question": 10,
+    "choice_text": "Attending a social event",
+    "votes": [
+      1
+    ]
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 27,
+  "fields": {
+    "question": 11,
+    "choice_text": "Netflix",
+    "votes": []
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 28,
+  "fields": {
+    "question": 11,
+    "choice_text": "Disney+",
+    "votes": []
+  }
+},
+{
+  "model": "polls.choice",
+  "pk": 29,
+  "fields": {
+    "question": 11,
+    "choice_text": "BiliBili",
+    "votes": []
+  }
+}
+]
