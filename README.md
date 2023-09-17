@@ -24,3 +24,9 @@ All project documents are in the [Project Wiki](../../wiki/Home).
 - [Iteration 3 Plan](https://github.com/PhumrapeeC/ku-polls/wiki/Iteration-3-plan)
 
 [django-tutorial]: TODO-write-the-django-tutorial-URL-here
+
+## Demo User
+| Username  | Password        | 
+|-----------|-----------------|
+|   snowden1   | kupoll11234 | 
+|   snowden2   | kupoll21234 | 
