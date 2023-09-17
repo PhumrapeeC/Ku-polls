@@ -18,6 +18,7 @@ All project documents are in the [Project Wiki](../../wiki/Home).
 
 - [Vision Statement](../../wiki/Vision%20Statement)
 - [Development Plan](../../wiki/Development%20Plan)
+- [Domain Model](https://github.com/PhumrapeeC/ku-polls/wiki/Domain-Model)
 - [Requirements](../../wiki/Requirements)
 - [Iteration 1 Plan](https://github.com/PhumrapeeC/ku-polls/wiki/Iteration-1-Plan)
 - [Iteration 2 Plan](https://github.com/PhumrapeeC/ku-polls/wiki/Iteration-2-plan)
