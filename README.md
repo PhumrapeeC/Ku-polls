@@ -26,6 +26,11 @@ All project documents are in the [Project Wiki](../../wiki/Home).
 
 [django-tutorial]: TODO-write-the-django-tutorial-URL-here
 
+## Admin User
+| Username  | Password        | 
+|-----------|-----------------|
+|   admin   | 1234 | 
+
 ## Demo User
 | Username  | Password        | 
 |-----------|-----------------|
