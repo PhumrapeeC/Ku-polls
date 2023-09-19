@@ -23,7 +23,7 @@ All project documents are in the [Project Wiki](../../wiki/Home).
 - [Iteration 1 Plan](https://github.com/PhumrapeeC/ku-polls/wiki/Iteration-1-Plan)
 - [Iteration 2 Plan](https://github.com/PhumrapeeC/ku-polls/wiki/Iteration-2-plan)
 - [Iteration 3 Plan](https://github.com/PhumrapeeC/ku-polls/wiki/Iteration3-Plan)
-- [Iteration 4 Plan](https://github.com/PhumrapeeC/ku-polls/wiki/Iteration4-Plan)
+- [Iteration 4 Plan](https://github.com/PhumrapeeC/ku-polls/wiki/Iteration-4-Plan)
 
 [django-tutorial]: TODO-write-the-django-tutorial-URL-here
 
