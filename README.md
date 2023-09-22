@@ -10,7 +10,27 @@ https://cpske.github.io/ISP) course at Kasetsart University.
 
 ## Install and Run
 
-to be added.
+1. Activate the virtual environment
+   ```
+   # On Linux or MacOS:
+   source venv/bin/activate
+   
+   # On Windows:
+   venv\Scripts\activate
+   ```
+2. Start the Django development server
+   ```
+   python manage.py runserver
+   ```
+   If you get a message that the port is unavailable, then run the server on a different port (1024 thru 65535) such as:
+   ```
+   python3 manage.py runserver 12345
+   ```
+3. Access the app in a web browser at <http://localhost:8000>
+4. Exit the virtual environment by closing the window or by typing:
+   ```
+   deactivate
+   ```
 
 ## Project Documents
 
