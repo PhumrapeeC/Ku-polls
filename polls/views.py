@@ -11,7 +11,7 @@ from .models import Choice, Question
 
 class IndexView(generic.ListView):
     """
-    View to display a list of the latest published questions.
+    View to display a list of all published questions, sorted by date.
 
     Attributes:
         template_name (str): The name of the template to be used for rendering the view.
@@ -25,6 +25,7 @@ class IndexView(generic.ListView):
         Return all published questions, sorted by date (from newest to oldest).
         """
         return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
+
 
 class DetailView(generic.DetailView):
     """
