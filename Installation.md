@@ -69,3 +69,7 @@
    ```
    python manage.py runserver
    ```
+note: if css not show try to use 
+```terminal
+python manage.py runserver --insecure
+```
