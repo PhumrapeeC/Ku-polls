@@ -1,21 +1,4 @@
 ## Installation and Configuration
-### Using setup script
-1. Clone the repository and change directory into the repo
-   ```
-   git clone https://github.com/PhumrapeeC/ku-polls.git
-   cd ku-polls
-   ```
-2. Execute the setup script
-
-   For Linux/MacOS:
-   ```
-   chmod +x setup-linux.sh
-   ./setup-linux.sh
-   ```
-   For Windows (If it doesn't work, try `Manual Installation`):
-   ```
-   setup-win.bat
-   ```
 
 ### Manual Installation
 1. Clone the repository
