@@ -20,7 +20,7 @@
 ### Manual Installation
 1. Clone the repository
    ```
-   git clone https://github.com/Jwizzed/ku-polls.git
+   git clone https://github.com/PhumrapeeC/ku-polls.git
    ```
 2. Change directory into the repo
    ```
