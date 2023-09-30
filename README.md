@@ -16,7 +16,7 @@ https://cpske.github.io/ISP) course at Kasetsart University.
    source venv/bin/activate
    
    # On Windows:
-   venv\Scripts\activate
+   venv/Scripts/activate
    ```
 2. Start the Django development server
    ```
