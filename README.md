@@ -10,6 +10,8 @@ https://cpske.github.io/ISP) course at Kasetsart University.
 
 ## Install and Run
 
+Read how to install and configure application from [Installation.md](Installation.md).
+
 1. Activate the virtual environment
    ```
    # On Linux or MacOS:
