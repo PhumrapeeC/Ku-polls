@@ -2,7 +2,7 @@
 ### Using setup script
 1. Clone the repository and change directory into the repo
    ```
-   git clone https://github.com/Jwizzed/ku-polls.git
+   git clone https://github.com/PhumrapeeC/ku-polls.git
    cd ku-polls
    ```
 2. Execute the setup script
@@ -20,7 +20,7 @@
 ### Manual Installation
 1. Clone the repository
    ```
-   git clone https://github.com/Jwizzed/ku-polls.git
+   git clone https://github.com/PhumrapeeC/ku-polls.git
    ```
 2. Change directory into the repo
    ```
@@ -36,7 +36,7 @@
    source venv/bin/activate
    
    # On Windows:
-   call venv\Scripts\activate
+   call venv/Scripts/activate
    ```
 5. Install the required packages
    ```
@@ -58,7 +58,7 @@
    ```
 8. Load fixture data
    ```
-   python manage.py loaddata data/polls.json 
+   python manage.py loaddata data/polls-no-vote.json 
    python manage.py loaddata data/users.json
    ```
 9. Run tests
