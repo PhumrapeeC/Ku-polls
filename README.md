@@ -18,7 +18,7 @@ Read how to install and configure application from [Installation.md](Installatio
    source venv/bin/activate
    
    # On Windows:
-   venv\Scripts\activate
+   venv/Scripts/activate
    ```
 2. Start the Django development server
    ```

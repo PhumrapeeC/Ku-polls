@@ -1,5 +1,3 @@
-## Installation and Configuration
-
 ### Manual Installation
 1. Clone the repository
    ```
@@ -19,7 +17,7 @@
    source venv/bin/activate
    
    # On Windows:
-   call venv\Scripts\activate
+   call venv/Scripts/activate
    ```
 5. Install the required packages
    ```
